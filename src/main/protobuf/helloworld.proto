@@ -1,0 +1,27 @@
+syntax = "proto3";
+package grpc;
+option java_package = "com.grpc.model.protobuf.helloworld";
+option java_outer_classname = "HelloWorldServiceProto";
+
+//服务端接口类
+service Greeter {
+  //服务端接口方法
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  //服务器端流式rpc 1个请求多个返回
+  rpc ServerSideStreamFun(HelloRequest) returns (stream HelloReply){}
+  //客户端传入多个请求对象，服务端返回一个响应结果
+  rpc ClientSideStreamFun(stream HelloRequest) returns (HelloReply){}
+  //双向流式rpc 可以传入多个对象，返回多个响应对象
+  rpc TwoWayStreamFun(stream HelloRequest) returns (stream HelloReply){}
+}
+
+//请求参数
+message HelloRequest {
+  string name = 1;
+  string sex = 2;
+}
+
+//响应参数
+message HelloReply {
+  string message = 1;
+}
