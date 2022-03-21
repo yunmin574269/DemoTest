@@ -225,7 +225,7 @@ public class CollectionsTest {
 //        String sss=restTemplate.getForObject("http://localhost:8888//test2",String.class);
 //        System.out.println(sss);
 
-        String jsonArray=restTemplate.getForObject("http://47.74.183.249:19585/block/{1}",String.class,1379399);
+        String jsonArray=restTemplate.getForObject("http://localhost:19585/block/{1}",String.class,1379399);
         System.out.println(jsonArray.toString());
 
         Map<String,String> map = new HashMap();
